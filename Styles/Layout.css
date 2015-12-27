@@ -1,0 +1,233 @@
+body {
+    margin: 0px;
+}
+
+#search_bar {
+    width: 92%;
+    top: 20px;
+    margin-left: 4%;
+    position: absolute;
+}
+
+.param {
+    position: relative;
+    min-width: 33%;
+    display: inline-block;
+    float: left;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: default;
+    z-index: 1;
+}
+
+#query {
+    width: 75%;
+    margin-right: 1%;
+    font-family: Geneva;
+    font-size: 13px;
+    position: absolute;
+}
+
+#search {
+    width: 23%;
+    position: absolute;
+    right: 0px;
+    font-size: 17px;
+}
+
+.buttons {
+    width: 23%;
+    position: absolute;
+    font-size: 17px;
+    top: 100px;
+    right: 0px;
+}
+
+.card_holder {
+    width: 95%;
+    min-height: 300px;
+    margin-left: 2%;
+    background: rgba(201, 202, 219, 0.5);
+    position: absolute;
+    top: 170px;
+    border-radius: 0px 2px 2px 2px;
+    padding: 7px .5% 7px .5%;
+    margin-bottom: 20px;
+}
+
+.new_card_cols {
+    width: 24%;
+    position: relative;
+    margin: 7px 0.5% 7px 0.5%;
+    min-height: 460px;
+    float: left;
+}
+
+select {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.tab {
+    position: absolute;
+    padding: 0px;
+    top: -40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 15px 0px 15px;
+    background: rgba(201, 202, 219, 0.8);
+    border-radius: 4px 4px 0px 0px;
+    cursor: default;
+}
+
+.selected_tab{
+    position: absolute;
+    padding: 0px;
+    padding: 0px 15px 0px 15px;
+    border-radius: 4px 4px 0px 0px;
+    cursor: default;
+    background: rgba(201, 202, 219, 0.5);
+    top:-45px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.cards {
+    background: rgba(256, 256, 256, 0.35);
+    text-align: justify;
+    padding: 12px;
+    border-radius: 3px;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.1);
+    max-height: 700px;
+    margin-bottom: 20px;
+    overflow: scroll;
+    float: left;
+    width: 92%;
+    word-wrap: break-word;
+}
+
+.productNames {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+a {text-decoration: none; color: cornflowerblue;}
+a:hover {text-decoration: none; color: cornflowerblue;}
+a:active {text-decoration: none; color: cornflowerblue;}
+a:visited {text-decoration: none; color: cornflowerblue;}
+
+.descriptions {
+    font-size: 14px;
+    margin-top: 15px;
+    color: darkslategrey;
+}
+
+.images {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin: auto;
+}
+
+input {
+    z-index: 1;
+}
+
+#preview {
+    height: 96%;
+    width: 98%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin: auto;
+    top: 2%;
+    left: 1%;
+    position: fixed;
+    overflow: scroll;
+    z-index: 1000;
+    text-align: center;
+}
+
+#selected_items_num {
+    position: absolute;
+    right: 5.5%;
+    width: 15%;
+    top: 150px;
+    font-size: 13px;
+}
+
+#edit {
+    height: 96%;
+    width: 98%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin: auto;
+    top: 2%;
+    left: 1%;
+    position: fixed;
+    overflow: scroll;
+    z-index: 999;
+    text-align: center;
+}
+
+.edit_buttons {
+    width: 30px;
+    height: 30px;
+    border-radius: 0px;
+    float: right;
+    margin: 0px 0px 20px 10px;
+    border: none;
+    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.5);
+    background: url('http://icons.iconarchive.com/icons/custom-icon-design/mono-general-2/512/edit-icon.png') rgba(0, 0, 0, 0.25);
+    background-position: center;
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    -webkit-transition: all .5s ease;
+    z-index: 50;
+}
+
+#content_id_bar {
+    background: rgba(100, 100, 100, 1);
+    width: 330px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -330px;
+    z-index: 100;
+    -webkit-transition: all .5s ease;
+    text-align: center;
+    border-right: solid 3px black;
+    overflow-y: scroll;
+}
+
+#content_id_bar:hover {
+    left: 0px;
+}
+
+.contentId {
+    background: rgba(256, 256, 256, 0.5);
+    margin-top: 10px;
+    font-family: Courier New;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.contentIdSelected {
+    background: rgba(200, 200, 256, 0.5);
+    margin-top: 10px;
+    font-family: Courier New;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.contentDesc {
+    background: rgba(0, 0, 0, 0.2);
+}
+    
+.ratings {
+    font-family: 13px;
+    float: right;
+}
+
+::-webkit-scrollbar { display: none; }
