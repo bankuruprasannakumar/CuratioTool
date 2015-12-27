@@ -42,6 +42,7 @@
             var musicList = [];
             var contentIdGlobal = '';
             var category = '';
+            var merchant = '';
         </script>
         
         <?php
@@ -62,6 +63,11 @@
                 $category = $_POST['category'];
                 echo "category = '$category';";
             }
+            $merchant = "all";
+            if (isset($_POST['merchant'])) {
+                $merchant = $_POST['merchant'];
+                echo "merchant = '$merchant';";
+            }
             echo "</script>";
         ?>
         
@@ -76,7 +82,7 @@
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
                     
                     var productRequest1 = new XMLHttpRequest;
-                    productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4005/search", true);
+                    productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/search", true);
                     productRequest1.onreadystatechange = function () {
                         if (productRequest1.readyState == 4 && productRequest1.status == 200) {
                             productList1 = JSON.parse(productRequest1.responseText);
@@ -86,6 +92,8 @@
                             getArticles();
                         }
                     }
+                    var JSONObj = { "keyword":search_query, "category":category, "merchant":merchant};
+                    productRequest1.send(JSON.stringify(JSONObj));
                     productRequest1.send(search_query);
                     
                     var articleRequest = new XMLHttpRequest;
@@ -134,7 +142,7 @@
                         productRequest3.send();
                     }
                     
-                    //getMusic();
+                    getMusic();
                     
                 }
             }
@@ -192,11 +200,13 @@
 
                 <div class = "param">MERCHANT: &nbsp;
                     <select>
-                        <option value = "All">All</option>
-                        <option value = "Flipkart">Flipkart</option>
-                        <option value = "Amazon">Amazon</option>
-                        <option value = "Jabong">Jabong</option>
-                        <option value = "BestBuy">BestBuy</option>
+                        <option value = "all">All</option>
+                        <option value = "flipkart">Flipkart</option>
+                        <option value = "amazon">Amazon</option>
+                        <option value = "jabong">Jabong</option>
+                        <option value = "bestBuy">BestBuy</option>
+                        <option value = "bingProducts">Bing Products</option>
+                        <option value = "bingArticles">Bing Articles</option>
                     </select>
                 </div>
 

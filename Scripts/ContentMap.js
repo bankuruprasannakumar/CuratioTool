@@ -9,7 +9,7 @@ function createContentColumn(){
     document.getElementById("content_id_bar").innerHTML = "";
     
     var xhr = new XMLHttpRequest();
-    xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4005/getContent", false);
+    xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/getContent", false);
     xhr.send();
     
     contentIdList = JSON.parse(xhr.responseText);
@@ -46,7 +46,7 @@ function loadContent(elem_id) {
     
     var content_id = contentIdList[parseInt(elem_id.split("#")[1])].contentId;
     var xhr = new XMLHttpRequest();
-    xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4005/getContentProducts", true);
+    xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/getContentProducts", true);
     
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {

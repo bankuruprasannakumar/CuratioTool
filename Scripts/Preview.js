@@ -85,7 +85,7 @@ function createPreview() {
         var newOrderText = document.createElement("INPUT");
         newOrderText.type = "text";
         newOrderText.className = "edit_buttons";
-        newOrderText.setAttribute("style", "text-align: center; valign: center; font-weight: 400; font-size: 16px; background-image: none; overflow: scroll; padding: 3px; white-space: nowrap;");
+        newOrderText.setAttribute("style", "padding: 0px; text-align: center; font-weight: 600; font-size: 18px; background-image: none; overflow: scroll; padding: 3px; white-space: nowrap;");
         newOrderText.id = proper_id[0] + "#order#" + item_num;
         newOrderText.setAttribute("value", (item_num+1).toString());
         newOrderText.setAttribute("onchange", "changeOrder(this.id, this.value)");
@@ -104,12 +104,9 @@ function createPreview() {
 function changeOrder(elem_id, item_num) {
     if ((parseInt(item_num)-1 < selected_items_id.length) && (parseInt(item_num) > 0)) {
         var proper_id = parseInt(elem_id.split("#")[2]);
-        console.log(proper_id);
-        console.log(selected_items_id);
         var t = selected_items_id[parseInt(item_num)-1];
         selected_items_id[parseInt(item_num)-1] = selected_items_id[proper_id];
         selected_items_id[proper_id] = t;
-        console.log(selected_items_id);
         hidePreview();
         createPreview();
     }
@@ -127,7 +124,7 @@ function uploadItems() {
         var uploadData = JSON.parse('{"contentId":' + contentIdGlobal.toString() + '}');
         uploadData.products = selected_items;
         var xhr = new XMLHttpRequest();
-        xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4005/uploadProducts", false);
+        xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 
