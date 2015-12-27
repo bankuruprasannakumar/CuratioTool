@@ -17,12 +17,16 @@
         <script type = "text/javascript" src = "Scripts/Database.js"> </script>
         <script type = "text/javascript" src = "Scripts/Apps.js"> </script>
         <script type = "text/javascript" src = "Scripts/AppsDB.js"> </script>
+        <script type = "text/javascript" src = "Scripts/AppsCM.js"> </script>
         <script type = "text/javascript" src = "Scripts/Articles.js"> </script>
         <script type = "text/javascript" src = "Scripts/ArticlesDB.js"> </script>
+        <script type = "text/javascript" src = "Scripts/ArticlesCM.js"> </script>
         <script type = "text/javascript" src = "Scripts/Products.js"> </script>
         <script type = "text/javascript" src = "Scripts/ProductsDB.js"> </script>
+        <script type = "text/javascript" src = "Scripts/ProductsCM.js"> </script>
         <script type = "text/javascript" src = "Scripts/Music.js"> </script>
         <script type = "text/javascript" src = "Scripts/MusicDB.js"> </script>
+        <script type = "text/javascript" src = "Scripts/MusicCM.js"> </script>
         <script type = "text/javascript" src = "Scripts/Preview.js"> </script>
         <script type = "text/javascript" src = "Scripts/Edit.js"> </script>
         <script type = "text/javascript" src = "Scripts/ContentMap.js"> </script>
@@ -72,7 +76,7 @@
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
                     
                     var productRequest1 = new XMLHttpRequest;
-                    productRequest1.open("post", "http://192.168.0.105:4005/search", true);
+                    productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4005/search", true);
                     productRequest1.onreadystatechange = function () {
                         if (productRequest1.readyState == 4 && productRequest1.status == 200) {
                             productList1 = JSON.parse(productRequest1.responseText);
@@ -80,18 +84,16 @@
                             articleList = articleList.concat(productList1.productsForReadIt);
                             getProducts();
                             getArticles();
-                            alert("products done")
                         }
                     }
-                    var JSONObj = { "keyword":search_query, "category":category };
-                    productRequest1.send(JSON.stringify(JSONObj));
+                    productRequest1.send(search_query);
+                    
                     var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
                     articleRequest.onreadystatechange = function () {
                         if (articleRequest.readyState == 4 && articleRequest.status == 200) {
                             articleList = articleList.concat(JSON.parse(articleRequest.responseText));
                             getArticles();
-                            alert("articles done");
                         }
                     }
                     articleRequest.send();
@@ -102,7 +104,6 @@
                         if (appRequest.readyState == 4 && appRequest.status == 200) {
                             appList = JSON.parse(appRequest.responseText);
                             getApps();
-                            alert("Apps done")
                         }
                     }
                     appRequest.send();
@@ -133,7 +134,7 @@
                         productRequest3.send();
                     }
                     
-                    getMusic();
+                    //getMusic();
                     
                 }
             }

@@ -12,24 +12,19 @@ function getApps() {
         if (block == 5) { block = 1; }
         
         var element = document.getElementById("app#" + i);
-        
+
         var newSelectBar = document.createElement("DIV");
-        newSelectBar.setAttribute("style", "width: 100%; min-height: 20px; margin-bottom: 20px; background: (0, 0, 0, 0.05);");
+        newSelectBar.className = "selectImages";
         newSelectBar.id = "app#select#" + i;
         newSelectBar.setAttribute("onclick", "selectItem(this)");
+        newSelectBar.innerHTML = "<center><img id = 'app_image" + i + "'></center>";
 
-        element.appendChild(newSelectBar);
-        
-        var newImage = document.createElement("IMG");
+        document.getElementById("app#" + i).appendChild(newSelectBar);
+
+        var newImage = document.getElementById("app_image" + i);
         newImage.className = "images";
-        newImage.id = "app_image" + i;
         var image_url = appList[i].images[0];
-        if (image_url[0] != 'h') {
-            image_url = "https:" + image_url;
-        }
         newImage.src = image_url;
-        
-        document.getElementById("app#select#" + i).appendChild(newImage);
         
         var newTitle = document.createElement("A");
         newTitle.target = "_blank";
@@ -41,8 +36,8 @@ function getApps() {
         
         if (appList[i].rating != null) {
             var newRating = document.createElement("DIV");
-            newRating.setAttribute("style", "width: 100%; text-align: right; font-size: 14px;")
-            newRating.className = "ratings";
+            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;")
+            newRating.className = "details";
             newRating.id = "app_rating" + i;
             newRating.innerHTML = appList[i].rating + "<br>";
             element.appendChild(newRating);
@@ -50,16 +45,16 @@ function getApps() {
         
         if (appList[i].productPrice != null) {
             var newPrice = document.createElement("DIV");
-            newPrice.setAttribute("style", "width: 100%; text-align: right; font-size: 14px;")
+            newPrice.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
             newPrice.id = "app_productPrice" + i;
-            newPrice.className = "productPrice";
+            newPrice.className = "details";
             newPrice.innerHTML = appList[i].productPrice;
             document.getElementById("app#" + i).appendChild(newPrice);
         }
         
         var newDesc = document.createElement("DIV");
-        newDesc.className = "descriptions";
-        newDesc.id = "app_desc" + i;
+        newDesc.className = "details";
+        newDesc.id = "app_productDesc" + i;
         newDesc.innerHTML = "<b>Details: </b><br><br>" + appList[i].productDesc;
         element.appendChild(newDesc);
         
@@ -89,4 +84,6 @@ function getApps() {
             
         document.getElementById("app#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
+    
+    alert("Apps Loaded");
 }

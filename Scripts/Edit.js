@@ -25,7 +25,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "article_edit_desc_" + proper_id[2];
+        newDesc.id = "article_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = articleList[element].textArea;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -57,7 +57,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 90px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 470px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "app_edit_desc_" + proper_id[2];
+        newDesc.id = "app_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = appList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -106,7 +106,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "music_edit_desc_" + proper_id[2];
+        newDesc.id = "music_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = musicList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -145,7 +145,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 510px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "product_edit_desc_" + proper_id[2];
+        newDesc.id = "product_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = productList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -239,7 +239,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "articleCM_edit_desc_" + proper_id[2];
+        newDesc.id = "articleCM_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = articleCMList[element].textArea;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -271,7 +271,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 90px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 470px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "appCM_edit_desc_" + proper_id[2];
+        newDesc.id = "appCM_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = appCMList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -320,7 +320,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "musicCM_edit_desc_" + proper_id[2];
+        newDesc.id = "musicCM_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = musicCMList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -359,7 +359,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 510px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "productCM_edit_desc_" + proper_id[2];
+        newDesc.id = "productCM_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = productCMList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -453,7 +453,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "articleDB_edit_desc_" + proper_id[2];
+        newDesc.id = "articleDB_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = articleDBList[element].textArea;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -485,7 +485,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 90px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 470px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "appDB_edit_desc_" + proper_id[2];
+        newDesc.id = "appDB_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = appDBList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -534,7 +534,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "musicDB_edit_desc_" + proper_id[2];
+        newDesc.id = "musicDB_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = musicDBList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -573,7 +573,7 @@ function editElement(elem_id) {
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
         newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 510px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
-        newDesc.id = "productDB_edit_desc_" + proper_id[2];
+        newDesc.id = "productDB_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = productDBList[element].productDesc;
         
         document.getElementById("edit_card_holder").appendChild(newDesc);
@@ -700,81 +700,84 @@ function saveEdit(elem_id) {
         if (proper_id[0] == "article") {
             articleList[elem_num].productName = document.getElementById("article_edit_productName_" + item_num).innerHTML;
             articleList[elem_num].image = document.getElementById("article_edit_artwork_" + item_num).value;
-            articleList[elem_num].textArea = document.getElementById("article_edit_desc_" + item_num).innerHTML;
+            articleList[elem_num].textArea = document.getElementById("article_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("article_productName" + elem_num).innerHTML = articleList[elem_num].productName;
             document.getElementById("article_image" + elem_num).src = articleList[elem_num].image;
-            document.getElementById("article_desc" + elem_num).innerHTML = articleList[elem_num].textArea;
+            document.getElementById("article_productDesc" + elem_num).innerHTML = articleList[elem_num].textArea;
         }
         if (proper_id[0] == "app") {
             appList[elem_num].images[1] = app_cover_images[0];
             appList[elem_num].images[2] = app_cover_images[1];
             appList[elem_num].images[3] = app_cover_images[2];
-            appList[elem_num].productDesc = document.getElementById("app_edit_desc_" + item_num).innerHTML;
+            appList[elem_num].productDesc = document.getElementById("app_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("app_productName" + elem_num).innerHTML = appList[elem_num].productName;
-            document.getElementById("app_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + appList[elem_num].productDesc;
+            document.getElementById("app_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + appList[elem_num].productDesc;
         }
         if (proper_id[0] == "music") {
             musicList[elem_num].productName = document.getElementById("music_edit_productName_" + item_num).innerHTML;
             musicList[elem_num].image = document.getElementById("music_edit_artwork_" + item_num).value;
-            musicList[elem_num].productDesc = document.getElementById("music_edit_desc_" + item_num).innerHTML;
+            musicList[elem_num].productDesc = document.getElementById("music_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("music_productName" + elem_num).innerHTML = musicList[elem_num].productName;
             document.getElementById("music_image" + elem_num).src = musicList[elem_num].image;
-            document.getElementById("music_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + musicList[elem_num].productDesc;
+            document.getElementById("music_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + musicList[elem_num].productDesc;
         }
         if (proper_id[0] == "product") {
             productList[elem_num].productName = document.getElementById("product_edit_productName_" + item_num).innerHTML;
             productList[elem_num].images[0] = document.getElementById("product_edit_artwork_" + item_num).value;
-            productList[elem_num].productDesc = document.getElementById("product_edit_desc_" + item_num).innerHTML;
+            productList[elem_num].productDesc = document.getElementById("product_edit_productDesc_" + item_num).innerHTML;
             productList[elem_num].productPrice = document.getElementById("product_edit_price_" + item_num).innerHTML;
             productList[elem_num].merchantName = document.getElementById("product_edit_merchant_" + item_num).innerHTML;
             productList[elem_num].size = document.getElementById("product_edit_size_" + item_num).innerHTML;
             productList[elem_num].color = document.getElementById("product_edit_color_" + item_num).innerHTML;
             productList[elem_num].rating = document.getElementById("product_edit_rating_" + item_num).innerHTML;
-         /*   if (productList[elem_num].productPrice!= null) {
-            document.getElementById("product_productPrice" + elem_num).innerHTML = productList[elem_num].productPrice;
-            };
+            if (productList[elem_num].images[0] != null) {
+                document.getElementById("product_image" + elem_num).src = productList[elem_num].images[0];
+            }
+            if (productList[elem_num].productPrice!= null) {
+                document.getElementById("product_productPrice" + elem_num).innerHTML = productList[elem_num].productPrice;
+            }
             if (productList[elem_num].merchantName!= null) {
-            document.getElementById("product_merchantName" + elem_num).innerHTML = productList[elem_num].merchantName;
-            };
+                document.getElementById("product_merchantName" + elem_num).innerHTML = productList[elem_num].merchantName;
+            }
             if (productList[elem_num].rating!= null) {
-            document.getElementById("product_rating" + elem_num).innerHTML = productList[elem_num].rating;
-            };
+                document.getElementById("product_rating" + elem_num).innerHTML = productList[elem_num].rating;
+            }
             if (productList[elem_num].productName!= null) {
-            document.getElementById("product_productName" + elem_num).innerHTML = productList[elem_num].productName;
-            };
+                document.getElementById("product_productName" + elem_num).innerHTML = productList[elem_num].productName;
+            }
             if (productList[elem_num].productDesc!= null) {
-            document.getElementById("product_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + productList[elem_num].productDesc;
-            };
+                document.getElementById("product_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + productList[elem_num].productDesc;
+            }
             if (productList[elem_num].size != null) {
-                    document.getElementById("product_size" + elem_num).innerHTML = productList[elem_num].size;
-            };
+                document.getElementById("product_size" + elem_num).innerHTML = productList[elem_num].size;
+            }
             if (productList[elem_num].color!= null) {
-                    document.getElementById("product_color" + elem_num).innerHTML = productList[elem_num].color;
-            };*/
+                document.getElementById("product_color" + elem_num).innerHTML = productList[elem_num].color;
+            }
         }
         if (proper_id[0] == "articleCM") {
             articleCMList[elem_num].productName = document.getElementById("articleCM_edit_productName_" + item_num).innerHTML;
             articleCMList[elem_num].image = document.getElementById("articleCM_edit_artwork_" + item_num).value;
-            articleCMList[elem_num].textArea = document.getElementById("articleCM_edit_desc_" + item_num).innerHTML;
+            articleCMList[elem_num].textArea = document.getElementById("articleCM_edit_productDesc_" + item_num).innerHTML;
         }
         if (proper_id[0] == "appCM") {
             appCMList[elem_num].images[1] = appCM_cover_images[0];
             appCMList[elem_num].images[2] = appCM_cover_images[1];
             appCMList[elem_num].images[3] = appCM_cover_images[2];
-            appCMList[elem_num].productDesc = document.getElementById("appCM_edit_desc_" + item_num).innerHTML;
+            appCMList[elem_num].productDesc = document.getElementById("appCM_edit_productDesc_" + item_num).innerHTML;
         }
         if (proper_id[0] == "musicCM") {
             musicCMList[elem_num].productName = document.getElementById("musicCM_edit_productName_" + item_num).innerHTML;
             musicCMList[elem_num].image = document.getElementById("musicCM_edit_artwork_" + item_num).value;
-            musicCMList[elem_num].productDesc = document.getElementById("musicCM_edit_desc_" + item_num).innerHTML;
+            musicCMList[elem_num].productDesc = document.getElementById("musicCM_edit_productDesc_" + item_num).innerHTML;
         }
         if (proper_id[0] == "productCM") {
             productCMList[elem_num].productName = document.getElementById("productCM_edit_productName_" + item_num).innerHTML;
             productCMList[elem_num].images[0] = document.getElementById("productCM_edit_artwork_" + item_num).value;
-            productCMList[elem_num].productDesc = document.getElementById("productCM_edit_desc_" + item_num).innerHTML;
+            productCMList[elem_num].productDesc = document.getElementById("productCM_edit_productDesc_" + item_num).innerHTML;
             productCMList[elem_num].productPrice = document.getElementById("productCM_edit_price_" + item_num).innerHTML;
             productCMList[elem_num].merchantName = document.getElementById("productCM_edit_merchant_" + item_num).innerHTML;
             productCMList[elem_num].size = document.getElementById("productCM_edit_size_" + item_num).innerHTML;
@@ -784,38 +787,64 @@ function saveEdit(elem_id) {
         if (proper_id[0] == "articleDB") {
             articleDBList[elem_num].productName = document.getElementById("articleDB_edit_productName_" + item_num).innerHTML;
             articleDBList[elem_num].image = document.getElementById("articleDB_edit_artwork_" + item_num).value;
-            articleDBList[elem_num].textArea = document.getElementById("articleDB_edit_desc_" + item_num).innerHTML;
+            articleDBList[elem_num].textArea = document.getElementById("articleDB_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("articleDB_productName" + elem_num).innerHTML = articleDBList[elem_num].productName;
             document.getElementById("articleDB_image" + elem_num).src = articleDBList[elem_num].image;
-            document.getElementById("articleDB_desc" + elem_num).innerHTML = articleDBList[elem_num].textArea;
+            document.getElementById("articleDB_productDesc" + elem_num).innerHTML = articleDBList[elem_num].textArea;
         }
         if (proper_id[0] == "appDB") {
             appDBList[elem_num].images[1] = appDB_cover_images[0];
             appDBList[elem_num].images[2] = appDB_cover_images[1];
             appDBList[elem_num].images[3] = appDB_cover_images[2];
-            appDBList[elem_num].productDesc = document.getElementById("appDB_edit_desc_" + item_num).innerHTML;
+            appDBList[elem_num].productDesc = document.getElementById("appDB_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("appDB_productName" + elem_num).innerHTML = appDBList[elem_num].productName;
-            document.getElementById("appDB_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + appDBList[elem_num].productDesc;
+            document.getElementById("appDB_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + appDBList[elem_num].productDesc;
         }
         if (proper_id[0] == "musicDB") {
             musicDBList[elem_num].productName = document.getElementById("musicDB_edit_productName_" + item_num).innerHTML;
             musicDBList[elem_num].image = document.getElementById("musicDB_edit_artwork_" + item_num).value;
-            musicDBList[elem_num].productDesc = document.getElementById("musicDB_edit_desc_" + item_num).innerHTML;
+            musicDBList[elem_num].productDesc = document.getElementById("musicDB_edit_productDesc_" + item_num).innerHTML;
             
             document.getElementById("musicDB_productName" + elem_num).innerHTML = musicDBList[elem_num].productName;
             document.getElementById("musicDB_image" + elem_num).src = musicDBList[elem_num].image;
-            document.getElementById("musicDB_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + musicDBList[elem_num].productDesc;
+            document.getElementById("musicDB_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + musicDBList[elem_num].productDesc;
         }
         if (proper_id[0] == "productDB") {
             productDBList[elem_num].productName = document.getElementById("productDB_edit_productName_" + item_num).innerHTML;
             productDBList[elem_num].images[0] = document.getElementById("productDB_edit_artwork_" + item_num).value;
-            productDBList[elem_num].productDesc = document.getElementById("productDB_edit_desc_" + item_num).innerHTML;
+            productDBList[elem_num].productDesc = document.getElementById("productDB_edit_productDesc_" + item_num).innerHTML;
+            productDBList[elem_num].productPrice = document.getElementById("productDB_edit_price_" + item_num).innerHTML;
+            productDBList[elem_num].merchantName = document.getElementById("productDB_edit_merchant_" + item_num).innerHTML;
+            productDBList[elem_num].size = document.getElementById("productDB_edit_size_" + item_num).innerHTML;
+            productDBList[elem_num].color = document.getElementById("productDB_edit_color_" + item_num).innerHTML;
+            productDBList[elem_num].rating = document.getElementById("productDB_edit_rating_" + item_num).innerHTML;
+            if (productDBList[elem_num].productPrice!= null) {
+                document.getElementById("productDB_productPrice" + elem_num).innerHTML = productDBList[elem_num].productPrice;
+            }
+            if (productDBList[elem_num].merchantName!= null) {
+                document.getElementById("productDB_merchantName" + elem_num).innerHTML = productDBList[elem_num].merchantName;
+            }
+            if (productDBList[elem_num].rating!= null) {
+                document.getElementById("productDB_rating" + elem_num).innerHTML = productDBList[elem_num].rating;
+            }
+            if (productDBList[elem_num].productName!= null) {
+                document.getElementById("productDB_productName" + elem_num).innerHTML = productDBList[elem_num].productName;
+            }
+            if (productDBList[elem_num].productDesc!= null) {
+                document.getElementById("productDB_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + productList[elem_num].productDesc;
+            }
+            if (productList[elem_num].size != null) {
+                document.getElementById("product_size" + elem_num).innerHTML = productList[elem_num].size;
+            }
+            if (productList[elem_num].color!= null) {
+                document.getElementById("product_color" + elem_num).innerHTML = productList[elem_num].color;
+            }
             
             document.getElementById("productDB_productName" + elem_num).innerHTML = productDBList[elem_num].productName;
             document.getElementById("productDB_image" + elem_num).src = productDBList[elem_num].images[0];
-            document.getElementById("productDB_desc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + productDBList[elem_num].productDesc;
+            document.getElementById("productDB_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + productDBList[elem_num].productDesc;
         }
     
     createPreview();

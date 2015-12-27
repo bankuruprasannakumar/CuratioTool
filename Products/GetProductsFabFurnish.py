@@ -37,7 +37,7 @@ def getResults(query):
         t = pagestr.find('<div id="imgThumb')
         while t != -1:
             image = image[t:]
-            image = image[image.find('longdesc="')+10:]
+            image = image[image.find('longproductDesc="')+10:]
             images.append(image[:image.find('"')])
             t = image.find('<div id="imgThumb')
         

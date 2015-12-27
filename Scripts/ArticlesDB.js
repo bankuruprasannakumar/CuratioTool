@@ -9,21 +9,19 @@ function getArticlesDB() {
         document.getElementById("articleDB_card_col_" + block.toString()).appendChild(newCard);
         block++;
         if (block == 5) { block = 1; }
-        
+
         var newSelectBar = document.createElement("DIV");
-        newSelectBar.setAttribute("style", "width: 100%; min-height: 100px; margin-bottom: 20px; background: rgba(0, 0, 0, 0.05);");
+        newSelectBar.className = "selectImages";
         newSelectBar.id = "articleDB#select#" + i;
         newSelectBar.setAttribute("onclick", "selectItem(this)");
+        newSelectBar.innerHTML = "<center><img id = 'articleDB_image" + i + "'></center>";
 
         document.getElementById("articleDB#" + i).appendChild(newSelectBar);
-        
-        var newImage = document.createElement("IMG");
+
+        var newImage = document.getElementById("articleDB_image" + i);
         newImage.className = "images";
-        newImage.id = "articleDB_image" + i;
-        if (articleDBList[i].image != "") {
-            newImage.src = articleDBList[i].image;
-            document.getElementById("articleDB#select#" + i).appendChild(newImage);
-        }
+        var image_url = articleDBList[i].image;
+        newImage.src = image_url;
         
         var newTitle = document.createElement("A");
         newTitle.target = "_blank";
@@ -35,8 +33,8 @@ function getArticlesDB() {
         document.getElementById("articleDB#" + i).appendChild(newTitle);
         
         var newDesc = document.createElement("DIV");
-        newDesc.className = "descriptions";
-        newDesc.id = "articleDB_desc" + i;
+        newDesc.className = "details";
+        newDesc.id = "articleDB_productDesc" + i;
         newDesc.innerHTML = articleDBList[i].textArea;
         
         document.getElementById("articleDB#" + i).appendChild(newDesc);

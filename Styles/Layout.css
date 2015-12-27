@@ -45,7 +45,7 @@ body {
 
 .card_holder {
     width: 95%;
-    min-height: 300px;
+    min-height: calc(92% - 170px);
     margin-left: 2%;
     background: rgba(201, 202, 219, 0.5);
     position: absolute;
@@ -64,7 +64,7 @@ body {
 }
 
 select {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 5px;
 }
 
@@ -107,10 +107,17 @@ select {
 }
 
 .productNames {
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
+}
+
+.selectImages {
+    padding: 5px;
+    width: calc(100% - 10px);
+    min-height: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 a {text-decoration: none; color: cornflowerblue;}
@@ -118,17 +125,17 @@ a:hover {text-decoration: none; color: cornflowerblue;}
 a:active {text-decoration: none; color: cornflowerblue;}
 a:visited {text-decoration: none; color: cornflowerblue;}
 
-.descriptions {
+.details {
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 7px;
     color: darkslategrey;
+    margin-left: 10px;
 }
 
 .images {
     max-width: 100%;
     height: auto;
-    max-height: 250px;
-    margin: auto;
+    max-height: 300px;
 }
 
 input {
@@ -223,11 +230,6 @@ input {
 
 .contentDesc {
     background: rgba(0, 0, 0, 0.2);
-}
-    
-.ratings {
-    font-family: 13px;
-    float: right;
 }
 
 ::-webkit-scrollbar { display: none; }

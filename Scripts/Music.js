@@ -22,8 +22,8 @@ function getMusic() {
             musicList[i].productName = temp[i].name;
             
             var newDesc = document.createElement("DIV");
-            newDesc.id = "music_desc" + i;
-            newDesc.className = "descriptions";
+            newDesc.id = "music_productDesc" + i;
+            newDesc.className = "details";
             
             musicList[i].contentType = "LISTEN";
             var newCard = document.createElement("DIV");
@@ -33,23 +33,19 @@ function getMusic() {
             document.getElementById("music_card_col_" + block.toString()).appendChild(newCard);
             block++;
             if (block == 5) { block = 1; }
-            
+
             var newSelectBar = document.createElement("DIV");
-            newSelectBar.setAttribute("style", "width: 100%; min-height: 200px; margin-bottom: 20px; background: rgba(0, 0, 0, 0.05);");
+            newSelectBar.className = "selectImages";
             newSelectBar.id = "music#select#" + i;
             newSelectBar.setAttribute("onclick", "selectItem(this)");
-            
+            newSelectBar.innerHTML = "<center><img id = 'music_image" + i + "'></center>";
+
             document.getElementById("music#" + i).appendChild(newSelectBar);
-            
-            var newImage = document.createElement("IMG");
+
+            var newImage = document.getElementById("music_image" + i);
             newImage.className = "images";
             var image_url = musicList[i].image;
-            newImage.id = "music_image" + i;
-            if (image_url != null) {
-                musicList[i].image = image_url;
-                newImage.src = image_url;
-                document.getElementById("music#select#" + i).appendChild(newImage);
-            }
+            newImage.src = image_url;
                 
             var newTitle = document.createElement("A");
             newTitle.target = "_blank";
@@ -77,7 +73,7 @@ function getMusic() {
             if (len == 0) {clearInterval(timer); return;}
             if (count == len-1) {clearInterval(timer);}
             lastfm.artist.getInfo({artist: (musicList[count].contributor), track: (musicList[count].productName)}, {success: function(data){
-                document.getElementById("music_desc" + count).innerHTML = data.artist.bio.summary;
+                document.getElementById("music_productDesc" + count).innerHTML = data.artist.bio.summary;
                 musicList[count].productDesc = data.artist.bio.summary;
                 count++;
             }});
@@ -99,7 +95,7 @@ function getMusic() {
             musicList[i].contributor = tracks[i-len].user.username;
             musicList[i].image = tracks[i-len].artwork_url;
             musicList[i].productUrl = tracks[i-len].permalink_url;
-            musicList[i].productDesc = tracks[i-len].description;
+            musicList[i].productDesc = tracks[i-len].productDescription;
             musicList[i].contentType = "LISTEN";
 
             var newCard = document.createElement("DIV");
@@ -111,21 +107,17 @@ function getMusic() {
             if (block == 5) { block = 1; }
 
             var newSelectBar = document.createElement("DIV");
-            newSelectBar.setAttribute("style", "width: 100%; min-height: 200px; margin-bottom: 20px; background: rgba(0, 0, 0, 0.05);");
+            newSelectBar.className = "selectImages";
             newSelectBar.id = "music#select#" + i;
             newSelectBar.setAttribute("onclick", "selectItem(this)");
+            newSelectBar.innerHTML = "<center><img id = 'music_image" + i + "'></center>";
 
             document.getElementById("music#" + i).appendChild(newSelectBar);
 
-            var newImage = document.createElement("IMG");
+            var newImage = document.getElementById("music_image" + i);
             newImage.className = "images";
-            var image_url = musicList[i].image;
-            newImage.id = "music_image" + i;
-            if (image_url != null) {
-                musicList[i].image = image_url.replace("large.jpg", "t500x500.jpg");
-                newImage.src = musicList[i].image;
-                document.getElementById("music#select#" + i).appendChild(newImage);
-            }
+            var image_url = musicList[i].images[0];
+            newImage.src = image_url;
 
             var newTitle = document.createElement("A");
             newTitle.target = "_blank";
@@ -142,12 +134,14 @@ function getMusic() {
             document.getElementById("music#" + i).appendChild(newUser);
 
             var newDesc = document.createElement("DIV");
-            newDesc.id = "music_desc" + i;
-            newDesc.className = "descriptions";
+            newDesc.id = "music_productDesc" + i;
+            newDesc.className = "details";
             newDesc.innerHTML = musicList[i].productDesc;
 
             document.getElementById("music#" + i).appendChild(newDesc);
             document.getElementById("music#select#" + i).setAttribute("onclick", "selectItem(this.id)");
         }
     });
+    
+    alert("Music Loaded");
 }

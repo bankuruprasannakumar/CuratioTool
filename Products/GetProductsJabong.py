@@ -49,15 +49,15 @@ def getResults(query):
             price = pagestr[t+30:]
             price = price[:price.find('</span>')]
 
-            discountPerc = pagestr[pagestr.find('<span class="discount productDiscount">(')+40:]
-            discountPerc = discountPerc[:discountPerc.find('%)</span>')]
+            discountPerc = pagestr[pagestr.find('<span class="discount productDiscount">')+41:]
+            discountPerc = discountPerc[:discountPerc.find('&')]
         else:
             price = pagestr[pagestr.find('class="actual-price">')+21:]
             price = price[:price.find('</span>')]
             
-            discountPerc = ''
+            discountPerc = '0'
         
-        json_data += json.dumps({"merchantName":"Jabong", "contentType":"BUY", "productName":title, "productUrl":i, "productDesc":details, "productPrice":price, "brand":brand, "color":color, "images":images, "rating": ""}) + ','
+        json_data += json.dumps({"merchantName":"Jabong", "contentType":"BUY", "productName":title, "productUrl":i, "productDesc":details, "productPrice":price, "brand":brand, "color":color, "images":images, "rating": "", "discountedPercentage":discountPerc}) + ','
 
     try:
         json_data = json_data[:-1] + ']'

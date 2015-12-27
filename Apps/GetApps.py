@@ -81,5 +81,9 @@ def getResults(query):
     if json_data == ']':
         print "[]"
     print json_data
+    
+q = ""
+for i in sys.argv[1:]:
+    q += i + ' '
 
-getResults(sys.argv[1])
+getResults(q[:-1])
