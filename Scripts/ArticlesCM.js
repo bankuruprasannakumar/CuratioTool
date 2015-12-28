@@ -6,7 +6,7 @@ function getArticlesCM() {
         newCard.className = "cards";
         newCard.id = "articleCM#" + i;
         
-        document.getElementById("articleCM_card_col_" + block.toString()).appendChild(newCard);
+        document.getElementById("articleCM").appendChild(newCard);
         block++;
         if (block == 5) { block = 1; }
 
@@ -38,6 +38,5 @@ function getArticlesCM() {
         newDesc.innerHTML = articleCMList[i].textArea;
         
         document.getElementById("articleCM#" + i).appendChild(newDesc);
-        document.getElementById("articleCM#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
 }

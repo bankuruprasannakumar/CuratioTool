@@ -1,15 +1,12 @@
 function getAppsCM() {
-    var i, block = 1;
-    var a = [0, 0, 0, 0];
+    var i;
     for (i = 0; i < appCMList.length; i++) {
         console.log(appCMList[i]);
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "appCM#" + i;
         
-        document.getElementById("appCM_card_col_" + block.toString()).appendChild(newCard);
-        block++;
-        if (block == 5) { block = 1; }
+        document.getElementById("appCM").appendChild(newCard);
         
         var element = document.getElementById("appCM#" + i);
 
@@ -36,7 +33,7 @@ function getAppsCM() {
         
         if (appCMList[i].rating != null) {
             var newRating = document.createElement("DIV");
-            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;")
+            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
             newRating.className = "details";
             newRating.id = "appCM_rating" + i;
             newRating.innerHTML = appCMList[i].rating + "<br>";
@@ -81,7 +78,5 @@ function getAppsCM() {
             }
         }
         element.appendChild(newReviews);
-            
-        document.getElementById("appCM#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
 }

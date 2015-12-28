@@ -220,10 +220,10 @@
         
     <!-- #############################  Card Holders  ############################ -->
         
-        <div style = "display: none;" id = "productCM">
-        <div style = "display: none;" id = "articleCM">
-        <div style = "display: none;" id = "appCM">
-        <div style = "display: none;" id = "musicCM">
+        <div style = "z-index: -1000; opacity: 0;" id = "productCM"> </div>
+        <div style = "z-index: -1000; opacity: 0;" id = "articleCM"> </div>
+        <div style = "z-index: -1000; opacity: 0;" id = "appCM"> </div>
+        <div style = "z-index: -1000; opacity: 0;" id = "musicCM"> </div>
         
         <div class = "card_holder" id = "search_card_holder">
             <div id = "card_holder_products_tab" class = "selected_tab" style = "left: 0px;" onclick = "changeTab('card_holder_products')">Buy</div>

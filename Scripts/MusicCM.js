@@ -5,9 +5,7 @@ function getMusicCM() {
         newCard.className = "cards";
         newCard.id = "musicCM#" + i;
 
-        document.getElementById("musicCM_card_col_" + block.toString()).appendChild(newCard);
-        block++;
-        if (block == 5) { block = 1; }
+        document.getElementById("musicCM").appendChild(newCard);
 
         var newSelectBar = document.createElement("DIV");
         newSelectBar.className = "selectImages";
@@ -44,6 +42,5 @@ function getMusicCM() {
         newDesc.innerHTML = details;
 
         document.getElementById("musicCM#" + i).appendChild(newDesc);
-        document.getElementById("musicCM#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
 }

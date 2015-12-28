@@ -1,8 +1,4 @@
 function getProductsCM() {
-    
-    for (var i = 1; i < 5; i++) {
-        document.getElementById("productCM_card_col_" + i).innerHTML = "";
-    }
     var i, block = 1;
     for (i = 0; i < productCMList.length; i++) {
         productCMList[i].contentType = "BUY";
@@ -10,9 +6,7 @@ function getProductsCM() {
         newCard.className = "cards";
         newCard.id = "productCM#" + i;
 
-        document.getElementById("productCM_card_col_" + block.toString()).appendChild(newCard);
-        block++;
-        if (block == 5) { block = 1; }
+        document.getElementById("productCM").appendChild(newCard);
 
         var newSelectBar = document.createElement("DIV");
         newSelectBar.className = "selectImages";
@@ -136,7 +130,5 @@ function getProductsCM() {
             newDesc.innerHTML = "<b>Description:</b><br>" + productCMList[i].productCMDesc;
         }
         document.getElementById("productCM#" + i).appendChild(newDesc);
-        
-        document.getElementById("productCM#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
 }

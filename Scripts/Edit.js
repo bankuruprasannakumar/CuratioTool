@@ -1,7 +1,7 @@
 var app_cover_images = [];
 var appCM_cover_images = [];
 var appDB_cover_images = [];
-
+var countReviews;
 
 function editElement(elem_id) {
     var newCardHolder = document.createElement("DIV");
@@ -222,7 +222,18 @@ function editElement(elem_id) {
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 346px; left: 550px; font-size: 14px;'><b>Color: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 416px; left: 550px; font-size: 14px;'><b>Rating: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 486px; left: 550px; font-size: 14px;'><b>Details: </b></span>";
+       /* 
+        countReviews = productList[element].reviews.length;
+        for (var i = 0; i < countReviews; i++) {
+            var newReview = document.createElement("DIV");
+            newReview.id = "product_edit_review" + i;
+            newReview.value = productList[element].reviews[i];
+        }
         
+        var addReviewButton = document.createElement("BUTTON");
+        addReviewButton.className = "edit_buttons";
+        addReviewButton.setAttribute("onclick", "addReview()")
+        */
     }
     
     //######################################################################################################################
@@ -665,13 +676,15 @@ function editElement(elem_id) {
 }
 
 function changeEditImage(image_url, artwork_id) {
+    var elem_id = parseInt(selected_items_id[parseInt(artwork_id.split("_")[3])].split("#")[1]);
+    productList[elem_id].images[0] = image_url;
     document.getElementById(artwork_id.split("_")[0] + "_edit_image_" + artwork_id.split("_")[3]).src = image_url;
 }
 
 function changeEditImageProducts(num_image, product_id) {
     elem_id = parseInt(selected_items_id[(parseInt(product_id.split("_")[3]))].split("#")[1]);
     num_image = (num_image+1) % (productList[elem_id].images.length - 1);
-    document.getElementById(product_id.split("_")[0] + "_edit_artwork_" + product_id.split("_")[3]).setAttribute("value", productList[elem_id].images[num_image]);
+    document.getElementById(product_id.split("_")[0] + "_edit_artwork_" + product_id.split("_")[3]).setAttribute.value = productList[elem_id].images[num_image];
     document.getElementById(product_id.split("_")[0] + "_edit_image_" + product_id.split("_")[3]).src = productList[elem_id].images[num_image];
     document.getElementById(product_id.split("_")[0] + "_edit_arrow_" + product_id.split("_")[3]).setAttribute("onclick", "changeEditImageProducts(" + num_image + ", this.id)");
     
