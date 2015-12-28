@@ -94,7 +94,6 @@
                     }
                     var JSONObj = { "keyword":search_query, "category":category, "merchant":merchant};
                     productRequest1.send(JSON.stringify(JSONObj));
-                    productRequest1.send(search_query);
                     
                     var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
@@ -198,16 +197,16 @@
                     </select>
                 </div>
 
-                <div class = "param">MERCHANT: &nbsp;
-                    <select>
-                        <option value = "all">All</option>
-                        <option value = "flipkart">Flipkart</option>
-                        <option value = "amazon">Amazon</option>
-                        <option value = "jabong">Jabong</option>
-                        <option value = "bestBuy">BestBuy</option>
-                        <option value = "bingProducts">Bing Products</option>
-                        <option value = "bingArticles">Bing Articles</option>
-                    </select>
+                <div class = "param">Merchant: &nbsp;
+                    <select name = "merchant" onchange = "setMerchant(this.value)">
+                        <option value = "bingProducts" <?php if ($merchant == "bingProducts") { echo "selected"; } ?>>Bing Products</option>
+                        <option value = "bingArticles" <?php if ($merchant == "bingArticles") { echo "selected"; } ?>>Bing Articles</option>
+                        <option value = "all" <?php if ($merchant == "all") { echo "selected"; } ?>>ALL</option>
+<!--                         <option value = "sports" <?php if ($merchant == "sports") { echo "selected"; } ?>>Sports and Fitness</option>
+                        <option value = "music" <?php if ($merchant == "music") { echo "selected"; } ?>>Music</option>
+                        <option value = "home" <?php if ($merchant == "home") { echo "selected"; } ?>>Home Decor</option>
+                        <option value = "life-hacks" <?php if ($merchant == "life-hacks") { echo "selected"; } ?>>Life Hacks</option>
+ -->                    </select>
                 </div>
 
                 <div class = "param">TYPE: &nbsp;
