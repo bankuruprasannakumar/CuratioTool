@@ -74,7 +74,7 @@ function createPreview() {
         newButton.setAttribute("onclick", "deleteElement(this.id)");
 
         document.getElementById("preview_card_" + item_num).appendChild(newButton);
-
+        
         var newButton = document.createElement("BUTTON");
         newButton.className = "edit_buttons";
         newButton.id = proper_id[0] + "#edit#" + item_num;
@@ -88,7 +88,6 @@ function createPreview() {
         newOrderText.setAttribute("style", "padding: 0px; text-align: center; font-weight: 600; font-size: 18px; background-image: none; overflow: scroll; padding: 3px; white-space: nowrap;");
         newOrderText.id = proper_id[0] + "#order#" + item_num;
         newOrderText.setAttribute("value", (item_num+1).toString());
-        newOrderText.setAttribute("onchange", "changeOrder(this.id, this.value)");
 
         document.getElementById("preview_card_" + item_num).appendChild(newOrderText);
 
@@ -101,18 +100,25 @@ function createPreview() {
     document.body.style.overflow = "hidden";
 }
 
-function changeOrder(elem_id, item_num) {
-    if ((parseInt(item_num)-1 < selected_items_id.length) && (parseInt(item_num) > 0)) {
-        var proper_id = parseInt(elem_id.split("#")[2]);
-        var t = selected_items_id[parseInt(item_num)-1];
-        selected_items_id[parseInt(item_num)-1] = selected_items_id[proper_id];
-        selected_items_id[proper_id] = t;
-        hidePreview();
-        createPreview();
+function orderPreview() {
+    var order_items = [];
+    for (var i = 0; i < selected_items_id.length; i++) {
+        order_items.push("");
     }
-    else {
-        alert("Invalid number");
+    for (var i = 0; i < selected_items_id.length; i++) {
+        var x = document.getElementById(selected_items_id[i].split("#")[0] + "#order#" + i).value;
+        if (order_items[x-1] == "") {
+            order_items[x-1] = selected_items_id[i];
+        }
+        else {
+            order_items = selected_items_id;
+            alert("Invalid Order!");
+            break;
+        }
     }
+    selected_items_id = order_items;
+    hidePreview();
+    createPreview();
 }
 
 function uploadItems() {

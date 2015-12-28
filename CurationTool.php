@@ -71,10 +71,10 @@
         
         <script type = "text/javascript">
             function onCreate() {
-                createContentColumn();
+                //createContentColumn();
                 if (search_query != "") {
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
-    
+                    /*
                     var productRequest1 = new XMLHttpRequest;
                     productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/search", true);
                     productRequest1.onreadystatechange = function () {
@@ -87,7 +87,7 @@
                         }
                     }
                     productRequest1.send(search_query);
-                    
+                    */
                     var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
                     articleRequest.onreadystatechange = function () {
@@ -155,6 +155,7 @@
             <span style = "color: white; font-family: Arial; font-size: 30px; float: left; margin-left: 30px;">PREVIEW SCREEN</span>
             <input type = "button" value = "Done" onclick = "uploadItems()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
             <input type = "button" value = "Back" onclick = "hidePreview()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            <input type = "button" value = "Re-Order" onclick = "orderPreview()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
             
         </div>
             
