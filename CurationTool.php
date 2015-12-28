@@ -42,7 +42,6 @@
             var musicList = [];
             var contentIdGlobal = '';
             var category = '';
-            var merchant = '';
         </script>
         
         <?php
@@ -63,11 +62,6 @@
                 $category = $_POST['category'];
                 echo "category = '$category';";
             }
-            $merchant = "all";
-            if (isset($_POST['merchant'])) {
-                $merchant = $_POST['merchant'];
-                echo "merchant = '$merchant';";
-            }
             echo "</script>";
         ?>
         
@@ -80,7 +74,7 @@
                 createContentColumn();
                 if (search_query != "") {
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
-                    
+    
                     var productRequest1 = new XMLHttpRequest;
                     productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/search", true);
                     productRequest1.onreadystatechange = function () {
@@ -92,8 +86,7 @@
                             getArticles();
                         }
                     }
-                    var JSONObj = { "keyword":search_query, "category":category, "merchant":merchant};
-                    productRequest1.send(JSON.stringify(JSONObj));
+                    productRequest1.send(search_query);
                     
                     var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
@@ -197,16 +190,14 @@
                     </select>
                 </div>
 
-                <div class = "param">Merchant: &nbsp;
-                    <select name = "merchant" onchange = "setMerchant(this.value)">
-                        <option value = "bingProducts" <?php if ($merchant == "bingProducts") { echo "selected"; } ?>>Bing Products</option>
-                        <option value = "bingArticles" <?php if ($merchant == "bingArticles") { echo "selected"; } ?>>Bing Articles</option>
-                        <option value = "all" <?php if ($merchant == "all") { echo "selected"; } ?>>ALL</option>
-<!--                         <option value = "sports" <?php if ($merchant == "sports") { echo "selected"; } ?>>Sports and Fitness</option>
-                        <option value = "music" <?php if ($merchant == "music") { echo "selected"; } ?>>Music</option>
-                        <option value = "home" <?php if ($merchant == "home") { echo "selected"; } ?>>Home Decor</option>
-                        <option value = "life-hacks" <?php if ($merchant == "life-hacks") { echo "selected"; } ?>>Life Hacks</option>
- -->                    </select>
+                <div class = "param">MERCHANT: &nbsp;
+                    <select>
+                        <option value = "All">All</option>
+                        <option value = "Flipkart">Flipkart</option>
+                        <option value = "Amazon">Amazon</option>
+                        <option value = "Jabong">Jabong</option>
+                        <option value = "BestBuy">BestBuy</option>
+                    </select>
                 </div>
 
                 <div class = "param">TYPE: &nbsp;
@@ -228,6 +219,11 @@
         </form>
         
     <!-- #############################  Card Holders  ############################ -->
+        
+        <div style = "display: none;" id = "productCM">
+        <div style = "display: none;" id = "articleCM">
+        <div style = "display: none;" id = "appCM">
+        <div style = "display: none;" id = "musicCM">
         
         <div class = "card_holder" id = "search_card_holder">
             <div id = "card_holder_products_tab" class = "selected_tab" style = "left: 0px;" onclick = "changeTab('card_holder_products')">Buy</div>

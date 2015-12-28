@@ -91,9 +91,8 @@ function createPreview() {
         newOrderText.setAttribute("onchange", "changeOrder(this.id, this.value)");
 
         document.getElementById("preview_card_" + item_num).appendChild(newOrderText);
-        if (document.getElementById(selected_items_id[item_num]) != null) {
-                    document.getElementById("preview_card_" + item_num).innerHTML += document.getElementById(selected_items_id[item_num]).innerHTML;
-        };
+
+        document.getElementById("preview_card_" + item_num).innerHTML += document.getElementById(selected_items_id[item_num]).innerHTML;
     }
     
     document.getElementById("preview").style.display = "block";
