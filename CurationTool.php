@@ -71,7 +71,7 @@
         
         <script type = "text/javascript">
             function onCreate() {
-                //createContentColumn();
+                createContentColumn();
                 if (search_query != "") {
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
                 
