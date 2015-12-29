@@ -127,8 +127,8 @@ function getProductsCM() {
         newDesc.id = "productCM_productDesc" + i;
         newDesc.className = "details";
         newDesc.innerHTML = "<b>Description:</b> N/A";
-        if (productCMList[i].productCMDesc != null) {
-            newDesc.innerHTML = "<b>Description:</b><br>" + productCMList[i].productCMDesc;
+        if (productCMList[i].productDesc != null) {
+            newDesc.innerHTML = "<b>Description:</b><br>" + productCMList[i].productDesc;
         }
         document.getElementById("productCM#" + i).appendChild(newDesc);
     }

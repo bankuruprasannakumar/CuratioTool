@@ -3,15 +3,15 @@ var selected_items = [];
 var selected_itemsCM = [];
 
 function selectItem(element_id) {
-    
+    console.log(element_id);
     if (contentIdGlobal != null) {
     
         var proper_id = element_id.split("#")[0] + '#' + element_id.split("#")[2];
         var item_index = selected_items_id.indexOf(proper_id);
         if (item_index == -1) {
             if (selected_items_id.length == 20) {
-                alert("Sorry! You can select only 20 items");
-                return;
+                alert("Sorry! You can select only 20 items");   
+		    return;
             }
 
             selected_items_id.push(proper_id);
@@ -92,6 +92,21 @@ function createPreview() {
         document.getElementById("preview_card_" + item_num).appendChild(newOrderText);
 
         document.getElementById("preview_card_" + item_num).innerHTML += document.getElementById(selected_items_id[item_num]).innerHTML;
+     var itemObject = parseInt(proper_id[1]);
+       if (proper_id[0] == "product") { selected_items.push(productList[itemObject]); }
+       if (proper_id[0] == "productCM") { selected_items.push(productCMList[itemObject]); }
+       if (proper_id[0] == "productDB") { selected_items.push(productDBList[itemObject]); }
+       if (proper_id[0] == "article") { selected_items.push(articleList[itemObject]); }
+       if (proper_id[0] == "articleCM") { selected_items.push(articleCMList[itemObject]); }
+       if (proper_id[0] == "articleDB") { selected_items.push(articleDBList[itemObject]); }
+       if (proper_id[0] == "app") { selected_items.push(appList[itemObject]); }
+       if (proper_id[0] == "appCM") { selected_items.push(appCMList[itemObject]); }
+       if (proper_id[0] == "appDB") { selected_items.push(appDBList[itemObject]); }
+       if (proper_id[0] == "music") { selected_items.push(musicList[itemObject]); }
+       if (proper_id[0] == "musicCM") { selected_items.push(musicCMList[itemObject]); }
+       if (proper_id[0] == "musicDB") { selected_items.push(musicDBList[itemObject]); }
+	
+
     }
     
     document.getElementById("preview").style.display = "block";
@@ -129,7 +144,9 @@ function uploadItems() {
     else {
         var uploadData = JSON.parse('{"contentId":' + contentIdGlobal.toString() + '}');
         uploadData.products = selected_items;
-        var xhr = new XMLHttpRequest();
+       console.log(selected_items_id);
+	console.log(selected_items);
+	 var xhr = new XMLHttpRequest();
         xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
