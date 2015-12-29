@@ -74,7 +74,7 @@
                 //createContentColumn();
                 if (search_query != "") {
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
-                    /*
+                
                     var productRequest1 = new XMLHttpRequest;
                     productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/search", true);
                     productRequest1.onreadystatechange = function () {
@@ -86,9 +86,9 @@
                             getArticles();
                         }
                     }
-                    productRequest1.send(search_query);
-                    */
-                    var articleRequest = new XMLHttpRequest;
+                     var JSONObj = { "keyword":search_query, "category":category, "merchant":merchant};
+                     productRequest1.send(JSON.stringify(JSONObj)); 
+                     var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
                     articleRequest.onreadystatechange = function () {
                         if (articleRequest.readyState == 4 && articleRequest.status == 200) {
