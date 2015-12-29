@@ -137,7 +137,6 @@ function uploadItems() {
                 if (xhr.responseText == "true") {
                     alert("Successfully Uploaded");
                     createContentColumn();
-                    loadContent(contentIdGlobal.toString());
                 }
                 else {
                     alert("Unable to upload contents!");
