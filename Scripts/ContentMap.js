@@ -69,6 +69,10 @@ function loadContent(elem_id) {
             musicCMList = itemList.productsForListenIt;
 
             addCMItems();
+            getProductsCM();
+            getArticlesCM();
+            getAppsCM();
+            getMusicCM();
             
             document.getElementById("contentId").value = contentIdGlobal;
         }

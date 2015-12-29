@@ -222,7 +222,7 @@ function editElement(elem_id) {
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 346px; left: 550px; font-size: 14px;'><b>Color: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 416px; left: 550px; font-size: 14px;'><b>Rating: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 486px; left: 550px; font-size: 14px;'><b>Details: </b></span>";
-       /* 
+        /*
         countReviews = productList[element].reviews.length;
         for (var i = 0; i < countReviews; i++) {
             var newReview = document.createElement("DIV");
@@ -232,7 +232,8 @@ function editElement(elem_id) {
         
         var addReviewButton = document.createElement("BUTTON");
         addReviewButton.className = "edit_buttons";
-        addReviewButton.setAttribute("onclick", "addReview()")
+        addReviewButton.id = "product_"
+        addReviewButton.setAttribute("onclick", "addReview(this.id)");
         */
     }
     
