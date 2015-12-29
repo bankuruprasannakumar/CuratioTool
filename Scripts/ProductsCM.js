@@ -1,4 +1,5 @@
 function getProductsCM() {
+    document.getElementById("productCM").innerHTML = "";
     var i, block = 1;
     for (i = 0; i < productCMList.length; i++) {
         productCMList[i].contentType = "BUY";
