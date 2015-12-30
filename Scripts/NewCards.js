@@ -13,7 +13,7 @@ function cancelCard() {
 
 function createCard() {
     var type = document.getElementById("new_card_combo").value;
-    var jsonObj = JSON.parse('{"productName" : "", "productUrl" : "", "image" : "", "productDesc" : "", "images" : [], "textArea" : ""}');
+    var jsonObj = JSON.parse('{"productName" : "", "productUrl" : "", "image" : "", "productDesc" : "", "images" : [""], "textArea" : ""}');
     
     createPreview();
     
