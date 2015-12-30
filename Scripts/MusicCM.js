@@ -1,4 +1,5 @@
 function getMusicCM() {
+    document.getElementById("musicCM").innerHTML = "";
     for (var i = 0; i < musicCMList.length; i++) {
         musicCMList[i].contentType = "LISTEN";
         var newCard = document.createElement("DIV");

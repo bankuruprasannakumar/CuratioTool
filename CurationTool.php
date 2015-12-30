@@ -30,6 +30,7 @@
         <script type = "text/javascript" src = "Scripts/Preview.js"> </script>
         <script type = "text/javascript" src = "Scripts/Edit.js"> </script>
         <script type = "text/javascript" src = "Scripts/ContentMap.js"> </script>
+        <script type = "text/javascript" src = "Scripts/NewCards.js"> </script>
         <script type = "text/javascript" src = "Scripts/lastfm.api.md5.js"> </script>
         <script type = "text/javascript" src = "Scripts/lastfm.api.js"> </script>
         <script type = "text/javascript" src = "https://connect.soundcloud.com/sdk/sdk-3.0.0.js"> </script>
@@ -62,11 +63,6 @@
                 $category = $_POST['category'];
                 echo "category = '$category';";
             }
-            $merchant = "all";
-            if (isset($_POST['merchant'])) {
-                $merchant = $_POST['merchant'];
-                echo "merchant = '$merchant';";
-            }
             echo "</script>";
         ?>
         
@@ -79,7 +75,7 @@
                 createContentColumn();
                 if (search_query != "") {
                     var productList1 = '[]', productList2 = '[]', productList3 = '[]';
-                
+                    
                     var productRequest1 = new XMLHttpRequest;
                     productRequest1.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/search", true);
                     productRequest1.onreadystatechange = function () {
@@ -91,9 +87,9 @@
                             getArticles();
                         }
                     }
-                     var JSONObj = { "keyword":search_query, "category":category, "merchant":merchant};
-                     productRequest1.send(JSON.stringify(JSONObj)); 
-                     var articleRequest = new XMLHttpRequest;
+                    productRequest1.send(search_query);
+                    
+                    var articleRequest = new XMLHttpRequest;
                     articleRequest.open("get", "GetArticles.php?q=" + search_query + "&category=" + category, true);
                     articleRequest.onreadystatechange = function () {
                         if (articleRequest.readyState == 4 && articleRequest.status == 200) {
@@ -158,10 +154,10 @@
         
         <div id = "preview" style = "display:none;">
             <span style = "color: white; font-family: Arial; font-size: 30px; float: left; margin-left: 30px;">PREVIEW SCREEN</span>
-            <input type = "button" value = "Done" onclick = "uploadItems()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
-            <input type = "button" value = "Back" onclick = "hidePreview()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
-            <input type = "button" value = "Re-Order" onclick = "orderPreview()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
-            
+            <input type = "button" value = "Done" onclick = "uploadItems()" style = "width: 170px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            <input type = "button" value = "Back" onclick = "hidePreview()" style = "width: 170px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            <input type = "button" value = "ReOrder" onclick = "orderPreview()" style = "width: 170px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            <input type = "button" value = "Add Card" onclick = "addCard()" style = "width: 170px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
         </div>
             
     <!-- ###############################  Edit Screen ############################# -->
@@ -172,6 +168,29 @@
             <input type = "button" value = "Cancel" id = "edit_cancel" onclick = "cancelEdit()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
         </div>
             
+    <!-- #############################  New Card Screen ########################### -->
+        
+        <div id = "newCard" style = "display:none;">
+            <span style = "color: white; font-family: Geneva; font-size: 30px; float: left; margin-left: 30px;">NEW CARD SCREEN</span>
+            
+            <input type = "button" value = "Save" onclick = "createCard()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            <input type = "button" value = "Cancel" onclick = "cancelCard()" style = "width: 200px; font-size: 17px; float: right; margin: 7px 10px 0px 10px;">
+            
+            <div style = "width: 100%; position: absolute; top: 40px; height: calc(100% - 40px); overflow: scroll; background: rgba(211, 212, 229, 0.9);">
+                
+                <center>
+                    <select id = "new_card_combo" class = "params" style = "margin: 0px; top: 100px; position: absolute; width: 200px;">
+                        <option value = "product">Product</option>
+                        <option value = "article">Article</option>
+                        <option value = "app">App</option>
+                        <option value = "music">Music</option>
+                    </select>
+                </center>
+                
+            </div>
+        </div>
+
+
     <!-- ################################  Search Bar  ############################# -->
         
         <form id = "search_bar" method = "post">
@@ -196,17 +215,16 @@
                     </select>
                 </div>
 
-                <div class = "param">Merchant: &nbsp;
-                    <select name = "merchant" onchange = "setMerchant(this.value)">
-                        <option value = "bingProducts" <?php if ($merchant == "bingProducts") { echo "selected"; } ?>>Bing Products</option>
-                        <option value = "bingArticles" <?php if ($merchant == "bingArticles") { echo "selected"; } ?>>Bing Articles</option>
-                        <option value = "all" <?php if ($merchant == "all") { echo "selected"; } ?>>ALL</option>
-<!--                         <option value = "sports" <?php if ($merchant == "sports") { echo "selected"; } ?>>Sports and Fitness</option>
-                        <option value = "music" <?php if ($merchant == "music") { echo "selected"; } ?>>Music</option>
-                        <option value = "home" <?php if ($merchant == "home") { echo "selected"; } ?>>Home Decor</option>
-                        <option value = "life-hacks" <?php if ($merchant == "life-hacks") { echo "selected"; } ?>>Life Hacks</option>
- -->                    </select>
+                <div class = "param">MERCHANT: &nbsp;
+                    <select>
+                        <option value = "All">All</option>
+                        <option value = "Flipkart">Flipkart</option>
+                        <option value = "Amazon">Amazon</option>
+                        <option value = "Jabong">Jabong</option>
+                        <option value = "BestBuy">BestBuy</option>
+                    </select>
                 </div>
+
                 <div class = "param">TYPE: &nbsp;
                     <select name = "categoryO" onchange = "setCategory(this.value)">
                         <option value = "fashion" <?php if ($category == "fashion") { echo "selected"; } ?>>Fashion</option>
@@ -227,10 +245,10 @@
         
     <!-- #############################  Card Holders  ############################ -->
         
-        <div style = "z-index: -1000; opacity: 0;" id = "productCM"> </div>
-        <div style = "z-index: -1000; opacity: 0;" id = "articleCM"> </div>
-        <div style = "z-index: -1000; opacity: 0;" id = "appCM"> </div>
-        <div style = "z-index: -1000; opacity: 0;" id = "musicCM"> </div>
+        <div style = "z-index: -1000; opacity: 0; height: 100px;" id = "productCM"> </div>
+        <div style = "z-index: -1000; opacity: 0; height: 100px;" id = "articleCM"> </div>
+        <div style = "z-index: -1000; opacity: 0; height: 100px;" id = "appCM"> </div>
+        <div style = "z-index: -1000; opacity: 0; height: 100px;" id = "musicCM"> </div>
         
         <div class = "card_holder" id = "search_card_holder">
             <div id = "card_holder_products_tab" class = "selected_tab" style = "left: 0px;" onclick = "changeTab('card_holder_products')">Buy</div>

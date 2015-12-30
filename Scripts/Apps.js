@@ -1,8 +1,10 @@
 function getApps() {
     
-    var i, block = 1;
-    var a = [0, 0, 0, 0];
-    for (i = 0; i < appList.length; i++) {
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("app_card_col_" + i).innerHTML = "";
+    }
+    var block = 1;
+    for (var i = 0; i < appList.length; i++) {
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "app#" + i;

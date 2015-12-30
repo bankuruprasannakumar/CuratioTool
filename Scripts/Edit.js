@@ -10,8 +10,9 @@ function editElement(elem_id) {
     
     document.getElementById("edit").appendChild(newCardHolder);
     
+    console.log(elem_id);
     var proper_id = elem_id.split("#");
-    var element = parseInt(((selected_items_id[proper_id[2]]).split("#"))[1]);
+    var element = parseInt(((selected_items_id[parseInt(proper_id[2])]).split("#"))[1]);
     
     if (proper_id[0] == "article") {
         var newTitle = document.createElement("DIV");
@@ -91,7 +92,30 @@ function editElement(elem_id) {
         
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 66px; left: 550px; font-size: 14px;'><b>Details: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span id = 'num_cover' style = 'position: absolute; top: 53px; left: 80px; font-size: 15px;'>1</span>";
+        document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 600px; left: 550px; font-size: 14px;'><b>Reviews: </b></span>";
         
+        var newReviewBox = document.createElement("DIV");
+        newReviewBox.setAttribute("style", "width: 480px; max-height: 400px; overflow: scroll; position: relative; top: 630px; left: 600px; background: rgba(0, 0, 0, 0.05); padding: 20px; padding-bottom: 0px; margin-bottom: 30px;");
+        newReviewBox.id = "edit_card_holder_review";
+        document.getElementById("edit_card_holder").appendChild(newReviewBox);
+        
+        countReviews = appList[element].reviews.length;
+        for (var i = 0; i < countReviews; i++) {
+            var newReview = document.createElement("DIV");
+            newReview.id = "app_edit_review" + proper_id[2] + "_" + i;
+            newReview.contentEditable = "true";
+            newReview.setAttribute("style", "font-size: 14px; position: relative; margin-bottom: 20px; width: 100%; max-height: 80px; border: solid 1px lightblue; border-radius: 2px; overflow: scroll; padding: 5px; left: -5px; background: rgba(256, 256, 256, 0.2); text-align: left;");
+            newReview.innerHTML = appList[element].reviews[i];
+            
+            document.getElementById("edit_card_holder_review").appendChild(newReview);
+        }
+        
+        var addReviewButton = document.createElement("BUTTON");
+        addReviewButton.className = "edit_buttons";
+        addReviewButton.setAttribute("style", "top: 600px; left: 1120px; position: absolute; background-image: url('https://guildlist.googlecode.com/hg/src/images/new/add.png')");
+        addReviewButton.id = "product_edit_review_add_" + proper_id[2];
+        addReviewButton.setAttribute("onclick", "addReview(this.id, " + element + ")");
+        document.getElementById("edit_card_holder").appendChild(addReviewButton);
     }
     
         if (proper_id[0] == "music") {
@@ -105,7 +129,7 @@ function editElement(elem_id) {
         
         var newDesc = document.createElement("DIV");
         newDesc.contentEditable = "true";
-        newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 500px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
+        newDesc.setAttribute("style", "font-size: 14px; position: absolute; top: 160px; left: 600px; width: 490px; border: solid 1px lightblue; border-radius: 2px; max-height: 400px; overflow: scroll; padding: 5px;  text-align: left;");
         newDesc.id = "music_edit_productDesc_" + proper_id[2];
         newDesc.innerHTML = musicList[element].productDesc;
         
@@ -222,19 +246,7 @@ function editElement(elem_id) {
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 346px; left: 550px; font-size: 14px;'><b>Color: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 416px; left: 550px; font-size: 14px;'><b>Rating: </b></span>";
         document.getElementById("edit_card_holder").innerHTML += "<span style = 'position: absolute; top: 486px; left: 550px; font-size: 14px;'><b>Details: </b></span>";
-        /*
-        countReviews = productList[element].reviews.length;
-        for (var i = 0; i < countReviews; i++) {
-            var newReview = document.createElement("DIV");
-            newReview.id = "product_edit_review" + i;
-            newReview.value = productList[element].reviews[i];
-        }
         
-        var addReviewButton = document.createElement("BUTTON");
-        addReviewButton.className = "edit_buttons";
-        addReviewButton.id = "product_"
-        addReviewButton.setAttribute("onclick", "addReview(this.id)");
-        */
     }
     
     //######################################################################################################################
@@ -676,6 +688,17 @@ function editElement(elem_id) {
     document.getElementById("searchDB_card_holder").style.opacity = .3;
 }
 
+function addReview(rev_id, element) {
+    var newReview = document.createElement("DIV");
+    newReview.id = "app_edit_review" + rev_id.split("_")[4] + "_" + countReviews;
+    newReview.contentEditable = "true";
+    newReview.setAttribute("style", "font-size: 14px; position: relative; margin-bottom: 20px; width: 100%; max-height: 80px; border: solid 1px lightblue; border-radius: 2px; overflow: scroll; padding: 5px; left: -5px; background: rgba(256, 256, 256, 0.2); text-align: left;");
+    newReview.innerHTML = "NEW COMMENT";
+
+    document.getElementById("edit_card_holder_review").appendChild(newReview);
+    countReviews += 1;
+}
+
 function changeEditImage(image_url, artwork_id) {
     var elem_id = parseInt(selected_items_id[parseInt(artwork_id.split("_")[3])].split("#")[1]);
     productList[elem_id].images[0] = image_url;
@@ -725,9 +748,13 @@ function saveEdit(elem_id) {
             appList[elem_num].images[2] = app_cover_images[1];
             appList[elem_num].images[3] = app_cover_images[2];
             appList[elem_num].productDesc = document.getElementById("app_edit_productDesc_" + item_num).innerHTML;
+            appList[elem_num].reviews = [];
+            for (var i = 0; i < countReviews; i++) {
+                appList[elem_num].reviews.push(document.getElementById("app_edit_review" + item_num + "_" + i).innerHTML);
+                console.log(i);
+            }
             
-            document.getElementById("app_productName" + elem_num).innerHTML = appList[elem_num].productName;
-            document.getElementById("app_productDesc" + elem_num).innerHTML = "<b>Details: </b><br><br>" + appList[elem_num].productDesc;
+            getApps();
         }
         if (proper_id[0] == "music") {
             musicList[elem_num].productName = document.getElementById("music_edit_productName_" + item_num).innerHTML;

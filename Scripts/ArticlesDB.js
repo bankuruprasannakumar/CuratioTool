@@ -1,7 +1,6 @@
 function getArticlesDB() {
-    var i, block = 1;
-    for (i = 0; i < articleDBList.length; i++) {
-        console.log(articleDBList[i]);
+    var block = 1;
+    for (var i = 0; i < articleDBList.length; i++) {
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "articleDB#" + i;

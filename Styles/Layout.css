@@ -178,6 +178,20 @@ input {
     text-align: center;
 }
 
+#newCard {
+    height: 96%;
+    width: 98%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin: auto;
+    top: 2%;
+    left: 1%;
+    position: fixed;
+    overflow: scroll;
+    z-index: 999;
+    text-align: center;
+}
+
 .edit_buttons {
     width: 30px;
     height: 30px;

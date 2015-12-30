@@ -1,8 +1,6 @@
 function getAppsDB() {
-    var i, block = 1;
-    var a = [0, 0, 0, 0];
-    for (i = 0; i < appDBList.length; i++) {
-        console.log(appDBList[i]);
+    var block = 1;
+    for (var i = 0; i < appDBList.length; i++) {
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "appDB#" + i;

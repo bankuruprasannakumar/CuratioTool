@@ -3,8 +3,8 @@ function getProductsDB() {
     for (var i = 1; i < 5; i++) {
         document.getElementById("productDB_card_col_" + i).innerHTML = "";
     }
-    var i, block = 1;
-    for (i = 0; i < productDBList.length; i++) {
+    var block = 1;
+    for (var i = 0; i < productDBList.length; i++) {
         productDBList[i].contentType = "BUY";
         var newCard = document.createElement("DIV");
         newCard.className = "cards";

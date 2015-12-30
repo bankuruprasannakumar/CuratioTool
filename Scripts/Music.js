@@ -2,6 +2,9 @@ var lastfm;
 
 function getMusic() {
     
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("music_card_col_" + i).innerHTML = "";
+    }
     lastfm = new LastFM({
       apiKey    : 'b006efe6884290a414b43d4e2c4eee09',
       apiSecret : '91e6e5ef18a320fb574bb326384b6a1f'

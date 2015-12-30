@@ -1,7 +1,6 @@
 function getAppsCM() {
-    var i;
-    for (i = 0; i < appCMList.length; i++) {
-        console.log(appCMList[i]);
+    document.getElementById("appCM").innerHTML = "";
+    for (var i = 0; i < appCMList.length; i++) {
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "appCM#" + i;
@@ -63,9 +62,9 @@ function getAppsCM() {
             newFeatures.innerHTML = "<b>Newly Added Features:</b><br>"
             for (var num = 0; num < appCMList[i].features.length; num++) {
                 newFeatures.innerHTML += "<p>" + appCMList[i].features[num] + "</p>";
-            }
+            }        
+            element.appendChild(newFeatures);
         }
-        element.appendChild(newFeatures);
         
         if (appCMList[i].reviews != null && appCMList[i].reviews != []) {
             var newReviews = document.createElement("DIV");
@@ -76,7 +75,7 @@ function getAppsCM() {
             for (var num = 0; num < appCMList[i].reviews.length; num++) {
                 newReviews.innerHTML += "<p>" + appCMList[i].reviews[num] + "</p>";
             }
+            element.appendChild(newReviews);
         }
-        element.appendChild(newReviews);
     }
 }

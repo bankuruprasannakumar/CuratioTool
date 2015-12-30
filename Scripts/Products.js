@@ -3,8 +3,11 @@ function getProducts() {
     for (var i = 1; i < 5; i++) {
         document.getElementById("product_card_col_" + i).innerHTML = "";
     }
-    var i, block = 1;
-    for (i = 0; i < productList.length; i++) {
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("product_card_col_" + i).innerHTML = "";
+    }
+    var block = 1;
+    for (var i = 0; i < productList.length; i++) {
         productList[i].contentType = "BUY";
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
@@ -139,6 +142,4 @@ function getProducts() {
         
         document.getElementById("product#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
-    
-    alert("Products Loaded");
 }

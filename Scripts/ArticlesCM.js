@@ -1,14 +1,11 @@
 function getArticlesCM() {
-    var i, block = 1;
-    for (i = 0; i < articleCMList.length; i++) {
-        console.log(articleCMList[i]);
+    document.getElementById("articleCM").innerHTML = "";
+    for (var i = 0; i < articleCMList.length; i++) {
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "articleCM#" + i;
         
         document.getElementById("articleCM").appendChild(newCard);
-        block++;
-        if (block == 5) { block = 1; }
 
         var newSelectBar = document.createElement("DIV");
         newSelectBar.className = "selectImages";
