@@ -4,13 +4,14 @@ function getProducts() {
         document.getElementById("product_card_col_" + i).innerHTML = "";
     }
     
+    var block = 1;
     for (var i = 0; i < productList.length; i++) {
         productList[i].contentType = "BUY";
         var newCard = document.createElement("DIV");
         newCard.className = "cards";
         newCard.id = "product#" + i;
 
-        document.getElementById("product").appendChild(newCard);
+        document.getElementById("product_card_col_" + block).appendChild(newCard);
         block++;
         if (block == 5) { block = 1; }
         

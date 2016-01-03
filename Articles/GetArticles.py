@@ -68,7 +68,7 @@ if sys.argv[1] == 'fashion':
     #articles += getResults(q + "site:hubpages.com", 2)
     #articles += getResults(q + "site:www.ehow.com", 3)
     #articles += getResults(q + "site:gurl.com", 17)
-    articles += getResults(q + "site:washingtonpost.com", 9)
+    articles += getResults(q + "site:washingtonpost.com", 1)
     articles += getResults(q + "site:www.nytimes.com", 0)
     #articles += getResults(q + "site:www.articlesbase.com", 2)
     articles += getResults(q + "site:www.thefashionspot.com", 5)

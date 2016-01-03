@@ -1,6 +1,8 @@
 function getProductsDB() {
     
-    document.getElementById("productDB").innerHTML = "";
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("productDB_card_col_" + i).innerHTML = "";
+    }
     
     var block = 1;
     for (var i = 0; i < productDBList.length; i++) {
@@ -9,7 +11,7 @@ function getProductsDB() {
         newCard.className = "cards";
         newCard.id = "productDB#" + i;
 
-        document.getElementById("productDB").appendChild(newCard);
+        document.getElementById("productDB_card_col_" + block).appendChild(newCard);
         block++;
         if (block == 5) { block = 1; }
         
@@ -120,6 +122,16 @@ function getProductsDB() {
         newCuisines.innerHTML = "";
         if (productDBList[i].cuisines != null && productDBList[i].cuisines != "") {
             newCuisines.innerHTML = "<b>Cuisines:</b> " + productDBList[i].cuisines;
+
+        }
+        element.appendChild(newCuisines);
+        
+        var newMaterial = document.createElement("DIV");
+        newMaterial.id = "productDB_material" + i;
+        newMaterial.className = "details";
+        newMaterial.innerHTML = "";
+        if (productDBList[i].material != null && productDBList[i].material != "") {
+            newCuisines.innerHTML = "<b>Material:</b> " + productDBList[i].material;
         }
         element.appendChild(newCuisines);
         
