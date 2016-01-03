@@ -66,7 +66,7 @@ def getResults(query):
         else:
             discountPerc = ''
 
-        json_data += json.dumps({"merchantName":"Fab Furnish", "contentType":"BUY", "productName":titles[i], "productUrl":urls[i], "productDesc":details, "productPrice":price, "brand":"Fab Home", "color":color, "images":images}) + ','
+        json_data += json.dumps({"merchantName":"Fab Furnish", "contentType":"BUY", "productName":titles[i], "productUrl":urls[i], "productDesc":details, "productPrice":price, "discountedPercentage":discountPerc, "brand":"Fab Home", "color":color, "images":images, "reviews":[], "material":"", "style":"", "aspectRatio":"", "features":[]}) + ','
         
     try:
         json_data = json_data[:-1] + ']'

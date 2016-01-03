@@ -85,6 +85,7 @@
                             articleList = articleList.concat(productList1.productsForReadIt);
                             getProducts();
                             getArticles();
+                            alert("Products Loaded");
                         }
                     }
                     productRequest1.send(search_query);
@@ -95,6 +96,7 @@
                         if (articleRequest.readyState == 4 && articleRequest.status == 200) {
                             articleList = articleList.concat(JSON.parse(articleRequest.responseText));
                             getArticles();
+                            alert("Articles Loaded");
                         }
                     }
                     articleRequest.send();
@@ -105,6 +107,7 @@
                         if (appRequest.readyState == 4 && appRequest.status == 200) {
                             appList = JSON.parse(appRequest.responseText);
                             getApps();
+                            alert("Apps Loaded");
                         }
                     }
                     appRequest.send();
@@ -179,7 +182,17 @@
             <div style = "width: 100%; position: absolute; top: 40px; height: calc(100% - 40px); overflow: scroll; background: rgba(211, 212, 229, 0.9);">
                 
                 <center>
-                    <select id = "new_card_combo" class = "params" style = "margin: 0px; top: 100px; position: absolute; width: 200px;">
+                    
+                    <span style = "font-size: 15px; font-weight: 500px; color: blue; position: absolute; top: 150px; left: 170px;">PRODUCT URL: </span>
+                    <input type = "text" id = "new_card_url" style = "width: 300px; left: 200px; top: 200px; position: absolute;">
+                    
+                    <span style = "font-size: 15px; font-weight: 500px; color: blue; position: absolute; top: 250px; left: 170px;">PRODUCT NAME: </span>
+                    <input type = "text" id = "new_card_name" style = "width: 300px; left: 200px; top: 300px; position: absolute;">
+                    
+                    <span style = "font-size: 15px; font-weight: 500px; color: blue; position: absolute; top: 350px; left: 170px;">MAIN IMAGE URL: </span>
+                    <input type = "text" id = "new_card_image" style = "width: 300px; left: 200px; top: 400px; position: absolute;">
+                    
+                    <select id = "new_card_combo" class = "params" style = "left: 200px; top: 100px; position: absolute; width: 200px;">
                         <option value = "product">Product</option>
                         <option value = "article">Article</option>
                         <option value = "app">App</option>

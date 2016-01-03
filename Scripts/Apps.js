@@ -14,6 +14,11 @@ function getApps() {
         if (block == 5) { block = 1; }
         
         var element = document.getElementById("app#" + i);
+        
+        if (selected_items_id.indexOf("app#" + i) != -1) {
+            element.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 1)";
+            element.style.background = "rgba(0, 0, 0, 0.1)";
+        }
 
         var newSelectBar = document.createElement("DIV");
         newSelectBar.className = "selectImages";
@@ -36,20 +41,22 @@ function getApps() {
         newTitle.innerHTML = appList[i].productName;
         element.appendChild(newTitle);
         
+        var newRating = document.createElement("DIV");
+        newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
+        newRating.className = "details";
+        newRating.id = "app_rating" + i;
+        newRating.innerHTML = "";
         if (appList[i].rating != null) {
-            var newRating = document.createElement("DIV");
-            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;")
-            newRating.className = "details";
-            newRating.id = "app_rating" + i;
             newRating.innerHTML = appList[i].rating + "<br>";
             element.appendChild(newRating);
         }
         
+        var newPrice = document.createElement("DIV");
+        newPrice.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
+        newPrice.id = "app_productPrice" + i;
+        newPrice.className = "details";
+        newPrice.innerHTML = "";
         if (appList[i].productPrice != null) {
-            var newPrice = document.createElement("DIV");
-            newPrice.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
-            newPrice.id = "app_productPrice" + i;
-            newPrice.className = "details";
             newPrice.innerHTML = appList[i].productPrice;
             document.getElementById("app#" + i).appendChild(newPrice);
         }
@@ -57,33 +64,35 @@ function getApps() {
         var newDesc = document.createElement("DIV");
         newDesc.className = "details";
         newDesc.id = "app_productDesc" + i;
-        newDesc.innerHTML = "<b>Details: </b><br><br>" + appList[i].productDesc;
+        newDesc.innerHTML = "<b>Details:</b><br>" + appList[i].productDesc;
         element.appendChild(newDesc);
         
-        if (appList[i].features != null && appList[i].features != []) {
-            var newFeatures = document.createElement("DIV");
-            newFeatures.setAttribute("style", "font-size: 14px;");
-            newFeatures.id = "app_features" + i;
-            newFeatures.className = "features";
-            newFeatures.innerHTML = "<b>Newly Added Features:</b><br>"
+        var newFeatures = document.createElement("DIV");
+        newFeatures.setAttribute("style", "font-size: 14px;");
+        newFeatures.id = "app_features" + i;
+        newFeatures.className = "details";
+        newFeatures.innerHTML = "";
+        if (appList[i].features != []) {
+            newFeatures.innerHTML = "<b>Newly Added Features:</b>";
             for (var num = 0; num < appList[i].features.length; num++) {
                 newFeatures.innerHTML += "<p>" + appList[i].features[num] + "</p>";
             }
         }
         element.appendChild(newFeatures);
         
-        if (appList[i].reviews != null && appList[i].reviews != []) {
-            var newReviews = document.createElement("DIV");
-            newReviews.setAttribute("style", "font-size: 14px;");
-            newReviews.id = "app_reviews" + i;
-            newReviews.className = "reviews";
-            newReviews.innerHTML = "<b>Reviews:</b><br>"
+        var newReviews = document.createElement("DIV");
+        newReviews.setAttribute("style", "font-size: 14px;");
+        newReviews.id = "app_reviews" + i;
+        newReviews.className = "details";
+        newReviews.innerHTML = "";
+        if (appList[i].reviews != []) {
+        newReviews.innerHTML = "<b>Reviews:</b>";
             for (var num = 0; num < appList[i].reviews.length; num++) {
                 newReviews.innerHTML += "<p>" + appList[i].reviews[num] + "</p>";
             }
         }
         element.appendChild(newReviews);
-            
+        
         document.getElementById("app#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
     

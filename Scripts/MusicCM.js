@@ -34,14 +34,16 @@ function getMusicCM() {
         newUser.innerHTML = musicCMList[i].contributor;
         newUser.setAttribute("style", "position: relative; float: right; font-size: 16px;")
         document.getElementById("musicCM#" + i).appendChild(newUser);
+        
+        if (musicCMList[i].productDesc != null) {
+            var details = (musicCMList[i].productDesc);
+            details = (details.substring(0, details.lastIndexOf(".") + 1));
+            var newDesc = document.createElement("DIV");
+            newDesc.id = "musicCM_productDesc" + i;
+            newDesc.className = "details";
+            newDesc.innerHTML = details;
 
-        var details = (musicCMList[i].productDesc);
-        details = (details.substring(0, details.lastIndexOf(".") + 1));
-        var newDesc = document.createElement("DIV");
-        newDesc.id = "musicCM_productDesc" + i;
-        newDesc.className = "details";
-        newDesc.innerHTML = details;
-
-        document.getElementById("musicCM#" + i).appendChild(newDesc);
+            document.getElementById("musicCM#" + i).appendChild(newDesc);
+        }
     }
 }

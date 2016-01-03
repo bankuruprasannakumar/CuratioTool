@@ -57,7 +57,7 @@ def getResults(query):
             
             discountPerc = '0'
         
-        json_data += json.dumps({"merchantName":"Jabong", "contentType":"BUY", "productName":title, "productUrl":i, "productDesc":details, "productPrice":price, "brand":brand, "color":color, "images":images, "rating": "", "discountedPercentage":discountPerc}) + ','
+        json_data += json.dumps({"merchantName":"Jabong", "contentType":"BUY", "productName":title, "productUrl":i, "productDesc":details, "productPrice":price, "brand":brand, "color":color, "images":images, "rating": "", "discountedPercentage":discountPerc, "reviews" : [], "material":"", "style":"", "aspectRatio":"", "features":[]}) + ','
 
     try:
         json_data = json_data[:-1] + ']'

@@ -71,16 +71,16 @@ function getMusic() {
         }
     }});
     setTimeout(function() {
-    var count = 0;
+        var count = 0;
         var timer = setInterval(function(){
-            if (len == 0) {clearInterval(timer); return;}
-            if (count == len-1) {clearInterval(timer);}
+            if (len == 0) {clearInterval(timer);}
+            if (count >= len-1) {clearInterval(timer);}
             lastfm.artist.getInfo({artist: (musicList[count].contributor), track: (musicList[count].productName)}, {success: function(data){
                 document.getElementById("music_productDesc" + count).innerHTML = data.artist.bio.summary;
                 musicList[count].productDesc = data.artist.bio.summary;
                 count++;
             }});
-    }, 2000);
+        }, 2000);
         
     }, 5000);
     

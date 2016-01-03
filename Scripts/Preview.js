@@ -93,6 +93,9 @@ function createPreview() {
 
         document.getElementById("preview_card_" + item_num).innerHTML += document.getElementById(selected_items_id[item_num]).innerHTML;
         
+        var x = selected_items_id[item_num].split("#");
+        document.getElementById(x[0] + "#select#" + x[1]).setAttribute("onclick", "");
+        
         var itemObject = parseInt(proper_id[1]);
         if (proper_id[0] == "product") { selected_items.push(productList[itemObject]); }
         if (proper_id[0] == "productCM") { selected_items.push(productCMList[itemObject]); }
@@ -142,24 +145,47 @@ function uploadItems() {
         alert("Please Choose a Content Id first.");
     }
     else {
-        var uploadData = JSON.parse('{"contentId":' + contentIdGlobal.toString() + '}');
-        uploadData.products = selected_items;
-        var xhr = new XMLHttpRequest();
-        xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                
-                if (xhr.responseText == "true") {
-                    alert("Successfully Uploaded");
-                    createContentColumn();
+        if (selected_items_id.length == 0) {
+            var x = confirm("Are you sure you want to upload no elements?");
+            if (x == true) {
+                var uploadData = JSON.parse('{"contentId":' + contentIdGlobal.toString() + '}');
+                uploadData.products = selected_items;
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+
+                        if (xhr.responseText == "true") {
+                            alert("Successfully Uploaded");
+                            createContentColumn();
+                        }
+                        else {
+                            alert("Unable to upload contents!");
+                        }
+                    }
                 }
-                else {
-                    alert("Unable to upload contents!");
-                }
+                xhr.send(JSON.stringify(uploadData));
             }
         }
-        xhr.send(JSON.stringify(uploadData));
-        console.log(selected_items);
+        else {
+            var uploadData = JSON.parse('{"contentId":' + contentIdGlobal.toString() + '}');
+            uploadData.products = selected_items;
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+
+                    if (xhr.responseText == "true") {
+                        alert("Successfully Uploaded");
+                        createContentColumn();
+                    }
+                    else {
+                        alert("Unable to upload contents!");
+                    }
+                }
+            }
+            xhr.send(JSON.stringify(uploadData));
+        }
     }
 }
 

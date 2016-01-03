@@ -247,3 +247,5 @@ input {
 }
 
 ::-webkit-scrollbar { display: none; }
+
+#content_id_bar::-webkit-scrollbar { display: block; }

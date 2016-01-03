@@ -85,4 +85,5 @@ def getResults(query):
 q = ""
 for i in sys.argv[1:]:
     q += i + ' '
+
 getResults(q[:-1])

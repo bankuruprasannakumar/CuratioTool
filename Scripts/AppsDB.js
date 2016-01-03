@@ -1,4 +1,8 @@
 function getAppsDB() {
+    
+    for (var i = 1; i < 5; i++) {
+        document.getElementById("appDB_card_col_" + i).innerHTML = "";
+    }
     var block = 1;
     for (var i = 0; i < appDBList.length; i++) {
         var newCard = document.createElement("DIV");
@@ -10,6 +14,11 @@ function getAppsDB() {
         if (block == 5) { block = 1; }
         
         var element = document.getElementById("appDB#" + i);
+        
+        if (selected_items_id.indexOf("appDB#" + i) != -1) {
+            element.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 1)";
+            element.style.background = "rgba(0, 0, 0, 0.1)";
+        }
 
         var newSelectBar = document.createElement("DIV");
         newSelectBar.className = "selectImages";
@@ -32,20 +41,22 @@ function getAppsDB() {
         newTitle.innerHTML = appDBList[i].productName;
         element.appendChild(newTitle);
         
+        var newRating = document.createElement("DIV");
+        newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
+        newRating.className = "details";
+        newRating.id = "appDB_rating" + i;
+        newRating.innerHTML = "";
         if (appDBList[i].rating != null) {
-            var newRating = document.createElement("DIV");
-            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
-            newRating.className = "details";
-            newRating.id = "appDB_rating" + i;
             newRating.innerHTML = appDBList[i].rating + "<br>";
             element.appendChild(newRating);
         }
         
+        var newPrice = document.createElement("DIV");
+        newPrice.setAttribute("style", "width: calc(100% - 10px); text-align: right;");
+        newPrice.id = "appDB_productPrice" + i;
+        newPrice.className = "details";
+        newPrice.innerHTML = "";
         if (appDBList[i].productPrice != null) {
-            var newPrice = document.createElement("DIV");
-            newRating.setAttribute("style", "width: calc(100% - 10px); text-align: right;")
-            newRating.className = "details";
-            newPrice.id = "appDB_productPrice" + i;
             newPrice.innerHTML = appDBList[i].productPrice;
             document.getElementById("appDB#" + i).appendChild(newPrice);
         }
@@ -53,33 +64,35 @@ function getAppsDB() {
         var newDesc = document.createElement("DIV");
         newDesc.className = "details";
         newDesc.id = "appDB_productDesc" + i;
-        newDesc.innerHTML = "<b>Details: </b><br><br>" + appDBList[i].productDesc;
+        newDesc.innerHTML = "<b>Details:</b><br>" + appDBList[i].productDesc;
         element.appendChild(newDesc);
         
-        if (appDBList[i].features != null && appDBList[i].features != []) {
-            var newFeatures = document.createElement("DIV");
-            newFeatures.setAttribute("style", "font-size: 14px;");
-            newFeatures.id = "appDB_features" + i;
-            newFeatures.className = "features";
-            newFeatures.innerHTML = "<b>Newly Added Features:</b><br>"
+        var newFeatures = document.createElement("DIV");
+        newFeatures.setAttribute("style", "font-size: 14px;");
+        newFeatures.id = "appDB_features" + i;
+        newFeatures.className = "details";
+        newFeatures.innerHTML = "";
+        if (appDBList[i].features != []) {
+            newFeatures.innerHTML = "<b>Newly Added Features:</b>";
             for (var num = 0; num < appDBList[i].features.length; num++) {
                 newFeatures.innerHTML += "<p>" + appDBList[i].features[num] + "</p>";
             }
         }
         element.appendChild(newFeatures);
         
-        if (appDBList[i].reviews != null && appDBList[i].reviews != []) {
-            var newReviews = document.createElement("DIV");
-            newReviews.setAttribute("style", "font-size: 14px;");
-            newReviews.id = "appDB_reviews" + i;
-            newReviews.className = "reviews";
-            newReviews.innerHTML = "<b>Reviews:</b><br>"
+        var newReviews = document.createElement("DIV");
+        newReviews.setAttribute("style", "font-size: 14px;");
+        newReviews.id = "appDB_reviews" + i;
+        newReviews.className = "details";
+        newReviews.innerHTML = "";
+        if (appDBList[i].reviews != []) {
+        newReviews.innerHTML = "<b>Reviews:</b>";
             for (var num = 0; num < appDBList[i].reviews.length; num++) {
                 newReviews.innerHTML += "<p>" + appDBList[i].reviews[num] + "</p>";
             }
         }
         element.appendChild(newReviews);
-            
+        
         document.getElementById("appDB#select#" + i).setAttribute("onclick", "selectItem(this.id)");
     }
 }
