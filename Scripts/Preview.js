@@ -140,7 +140,7 @@ function orderPreview() {
 }
 
 function uploadItems() {
-    
+    console.log(selected_items);
     if (contentIdGlobal == null) {
         alert("Please Choose a Content Id first.");
     }
@@ -154,7 +154,7 @@ function uploadItems() {
                 xhr.open("post", "http://appdemo.ops.ev1.inmobi.com:4020/uploadProducts", false);
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
-
+                    
                         if (xhr.responseText == "true") {
                             alert("Successfully Uploaded");
                             createContentColumn();
